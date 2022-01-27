@@ -12,19 +12,19 @@ do
           date
           sleep 20
           echo "Stopping the instance"
-          aws ec2 stop-instances --instance-ids i-0c88908dcc111268d
+          aws ec2 stop-instances --instance-ids i-0c88908dcc921268d
           i=$(($i+1))
 
         elif [[ $state == *"stopped"* ]]; then
           date
           echo "Starting the instance"
-          aws ec2 start-instances --instance-ids i-0c88908dcc111268d
+          aws ec2 start-instances --instance-ids i-0c88908dcc921268d
           i=$(($i+1))
 
         else
+         echo "Instance current state: $state"
           sleep 5
 
         fi
 
 done
-
